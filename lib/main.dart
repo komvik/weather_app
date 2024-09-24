@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/weather_data.dart';
+
 import 'package:weather_app/weather_app.dart';
+import 'package:weather_app/weather_repository.dart';
 
 void main() {
-  WeatherKF weatherkf = WeatherKF(
-    city: "Kaufbeuren",
-    temperatur: 17,
-    wetherstate: "Wind",
-  );
+  WeatherRepository weatherRepository = WeatherRepository();
 
-  runApp(MainApp(weatherkf: weatherkf));
+  runApp(MainApp(repository: weatherRepository));
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key, required this.weatherkf});
+  const MainApp({super.key, required this.repository});
 
-  final WeatherKF weatherkf;
+  final WeatherRepository repository;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: WeatherApp(weatherkf: weatherkf),
+      home: WeatherApp(repository: repository),
     );
   }
 }

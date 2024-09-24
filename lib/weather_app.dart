@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/weather_data.dart';
+import 'package:weather_app/weather_repository.dart';
 
 class WeatherApp extends StatelessWidget {
-  WeatherApp({super.key, required this.weatherkf});
+  WeatherApp({super.key, required this.repository});
 
-  WeatherKF weatherkf;
+  WeatherRepository repository;
   @override
   Widget build(BuildContext context) {
+    WeatherKF weatherkf = WeatherRepository().getWeatherRepository();
     return Scaffold(
         appBar: AppBar(
           title: const Text(
