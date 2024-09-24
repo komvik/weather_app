@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/weather_data.dart';
 import 'package:weather_app/weather_app.dart';
-import 'package:weather_app/wether_kf.dart';
 
 void main() {
-  final WetherKF wetherkf = WetherKF(
+  WeatherKF weatherkf = WeatherKF(
     city: "Kaufbeuren",
-    temperatur: 18,
+    temperatur: 17,
     wetherstate: "Wind",
   );
 
-  runApp(MainApp(wetherkf: wetherkf));
+  runApp(MainApp(weatherkf: weatherkf));
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key, required this.wetherkf});
+  const MainApp({super.key, required this.weatherkf});
 
-  final WetherKF wetherkf;
+  final WeatherKF weatherkf;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: WeatherApp(wetherkf: wetherkf),
+      home: WeatherApp(weatherkf: weatherkf),
     );
   }
 }

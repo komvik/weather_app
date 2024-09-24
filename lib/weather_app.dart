@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/wether_kf.dart';
+import 'package:weather_app/weather_data.dart';
 
 class WeatherApp extends StatelessWidget {
-  WeatherApp({super.key, required this.wetherkf});
+  WeatherApp({super.key, required this.weatherkf});
 
-  WetherKF wetherkf;
+  WeatherKF weatherkf;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
             "Wether App",
-            style: TextStyle(color: Colors.blue, fontSize: 24),
+            style:
+                TextStyle(color: Color.fromARGB(255, 3, 88, 159), fontSize: 24),
           ),
         ),
         body: Container(
@@ -19,21 +20,29 @@ class WeatherApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                "Willkommen zur Wetter-App",
-                style: TextStyle(color: Colors.blue, fontSize: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Willkommen zur Wetter-App",
+                    style: TextStyle(
+                        color: Colors.blue.withOpacity(0.5),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
               Text(
-                wetherkf.city,
-                style: const TextStyle(color: Colors.blue, fontSize: 24),
+                weatherkf.city,
+                style: const TextStyle(color: Colors.blue, fontSize: 20),
               ),
               Text(
-                "Temp: ${wetherkf.temperatur} C",
-                style: const TextStyle(color: Colors.blue, fontSize: 24),
+                "Temp: ${weatherkf.temperatur} C",
+                style: const TextStyle(color: Colors.blue, fontSize: 20),
               ),
               Text(
-                wetherkf.wetherstate,
-                style: const TextStyle(color: Colors.blue, fontSize: 24),
+                weatherkf.wetherstate,
+                style: const TextStyle(color: Colors.blue, fontSize: 20),
               ),
             ],
           ),
