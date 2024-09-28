@@ -6,18 +6,16 @@ import 'package:weather_app/weather_repository.dart';
 void main() {
   WeatherRepository weatherRepository = WeatherRepository();
 
-  runApp(MainApp(repository: weatherRepository));
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key, required this.repository});
-
-  final WeatherRepository repository;
+  const MainApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: WeatherApp(repository: repository),
-    );
+    return const MaterialApp(home: WeatherApp());
   }
 }
